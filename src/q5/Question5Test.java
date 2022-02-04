@@ -47,7 +47,7 @@ public class Question5Test {
             Question5.main( new String[0] );
             String actualOutput = getOutput();
             actualOutput = actualOutput.split(System.lineSeparator())[1 + i * 2] + System.lineSeparator();
-            assertEquals(expectedOut, actualOutput, "The output is different");
+            assertEquals(expectedOut, actualOutput, "Expected:" + expectedOut + "Actual:" + actualOutput);
         }
 
     }
@@ -55,14 +55,14 @@ public class Question5Test {
     @Test
     public void OutputCheckNotArmStrongNums() {
 
-        int[] notArmStrongNums = {10, 234, 534, 2452};
+        int[] notArmStrongNums = {10, 123, 152, 234, 372, 408, 500, 534, 690, 1425, 2323, 2452, 54753};
         for(int i = 0; i < notArmStrongNums.length; i++ ){
             String expectedOut = notArmStrongNums[i] + " is NOT an Armstrong Number!" + System.lineSeparator();
             provideInput(notArmStrongNums[i] + System.lineSeparator());
             Question5.main( new String[0] );
             String actualOutput = getOutput();
             actualOutput = actualOutput.split(System.lineSeparator())[1 + i * 2] + System.lineSeparator();
-            assertEquals(expectedOut, actualOutput, "The output is different");
+            assertEquals(expectedOut, actualOutput, "Expected:" + expectedOut + "Actual:" + actualOutput);
         }
 
     }
