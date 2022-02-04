@@ -39,7 +39,7 @@ public class Question4Test {
     @Test
     public void OutputCheckAD() {
 
-        int[] input1 = { -123, 0, 1, 2, 144, 1236 }; // hoursworked
+        int[] input1 = { -123, 0, 1, 2, 144, 1236 };
 
         for (int i = 0; i < input1.length; i++) {
             provideInput(input1[i] + System.lineSeparator() + "True" + System.lineSeparator());
@@ -59,7 +59,7 @@ public class Question4Test {
     @Test
     public void OutputCheckBC() {
 
-        int[] input1 = { -123, 0, 1, 2, 144, 1236 }; // hoursworked
+        int[] input1 = { -123, 0, 1, 2, 144, 1236 };
 
         for (int i = 0; i < input1.length; i++) {
             provideInput(input1[i] + System.lineSeparator() + "False" + System.lineSeparator());
