@@ -38,7 +38,7 @@ public class CrypticTest {
     public void OutputFollowsFormat() {
         Cryptic.main(new String[0]);
         String actual = getOutput();
-        boolean format = "has been encrypted into";
+        String format = "has been encrypted into";
 
         assertTrue(actual.contains(format), "Your program does not match the output format");
     }
