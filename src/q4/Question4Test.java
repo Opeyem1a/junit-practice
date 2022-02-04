@@ -45,12 +45,13 @@ public class Question4Test {
             provideInput(input1[i] + System.lineSeparator() + "True" + System.lineSeparator());
             Question4.main(new String[0]);
             String actualOutput = getOutput();
-            actualOutput = actualOutput.split(System.lineSeparator())[2 + i * 3].trim() + System.lineSeparator();
+            actualOutput = actualOutput.split(System.lineSeparator())[2 + i * 3].trim();
+            actualOutput = actualOutput.split("=")[1].trim() + System.lineSeparator();
 
             int year = input1[i];
-            String expectedOut = year + " AD - 1 = " + (year - 1) + " AD" + System.lineSeparator();
+            String expectedOut = (year - 1) + " AD" + System.lineSeparator();
 
-            assertEquals(expectedOut, actualOutput, "The output is different for AD");
+            assertEquals(expectedOut, actualOutput, "Expected: " + expectedOut + " Actual: " + actualOutput);
         }
 
     }
@@ -64,12 +65,13 @@ public class Question4Test {
             provideInput(input1[i] + System.lineSeparator() + "False" + System.lineSeparator());
             Question4.main(new String[0]);
             String actualOutput = getOutput();
-            actualOutput = actualOutput.split(System.lineSeparator())[2 + i * 3].trim() + System.lineSeparator();
+            actualOutput = actualOutput.split(System.lineSeparator())[2 + i * 3].trim();
+            actualOutput = actualOutput.split("=")[1].trim() + System.lineSeparator();
 
             int year = input1[i];
-            String expectedOut = year + " BC - 1 = " + (year + 1) + " BC" + System.lineSeparator();
+            String expectedOut = (year + 1) + " BC" + System.lineSeparator();
 
-            assertEquals(expectedOut, actualOutput, "The output is different for BC");
+            assertEquals(expectedOut, actualOutput, "Expected: " + expectedOut + " Actual: " + actualOutput);
         }
     }
 
