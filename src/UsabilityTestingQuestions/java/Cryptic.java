@@ -1,4 +1,4 @@
-package UsabilityTestingQuestions;
+package UsabilityTestingQuestions.java;
 
 import java.util.Random;
 

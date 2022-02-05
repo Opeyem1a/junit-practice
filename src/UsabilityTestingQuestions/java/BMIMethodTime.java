@@ -1,4 +1,4 @@
-package UsabilityTestingQuestions;
+package UsabilityTestingQuestions.java;
 // Methods - Defining Methods - Hard Q1
 /*
 Write a Java Program that asks the user for a double value indicating their height (in metres) and an integer indicating

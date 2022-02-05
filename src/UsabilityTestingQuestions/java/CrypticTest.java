@@ -1,4 +1,4 @@
-package UsabilityTestingQuestions;
+package UsabilityTestingQuestions.java;
 
 import org.junit.jupiter.api.*;
 
