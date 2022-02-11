@@ -59,9 +59,18 @@ class PayrollTaxTest {
         //Get Output
         String output = getOutput();
         //Get the calculated Pay Amount, Tax Amount, and Net Earnings
-        String PayOutput = output.split(System.lineSeparator())[3];
-        String TaxOutput = output.split(System.lineSeparator())[4];
-        String NetOutput = output.split(System.lineSeparator())[5];
+        String [] splitOutput = output.split(System.lineSeparator());
+        String PayOutput = "";
+        String TaxOutput = "";
+        String NetOutput = "";
+        for(int i = 0; i < splitOutput.length; i++) {
+            if(splitOutput[i].contains("Pay"))
+                PayOutput = output.split(System.lineSeparator())[i];
+            else if(splitOutput[i].contains("Tax"))
+                TaxOutput = output.split(System.lineSeparator())[i];
+            else if(splitOutput[i].contains("Net"))
+                NetOutput = output.split(System.lineSeparator())[i];
+        }
         //Get Numbers from Output Strings
         double payActual;
         double taxActual;
