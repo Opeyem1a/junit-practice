@@ -35,31 +35,13 @@ public class RightPrimeTest {
     //actual tests start now
 
     @Test
-    public void notPrimeAfterOneOperationTest(){
-        provideInput("89");
-        RightPrime.main(new String[0]);
-        String actual = getOutput();
-        String expected = "Enter a number"+System.lineSeparator()+"false"+System.lineSeparator();
-
-        assertEquals(expected, actual, "Your program does not check the prime after one operation");
-    }
-    @Test
-    public void notPrimeAfterTwoOperationsTest(){
+    public void notPrimeAfterTruncationsTest(){
         provideInput("1277");
         RightPrime.main(new String[0]);
         String actual = getOutput();
         String expected = "Enter a number"+System.lineSeparator()+"false"+System.lineSeparator();
 
-        assertEquals(expected, actual, "Your program does not check the prime after two operations");
-    }
-    @Test
-    public void smallPrimeTest(){
-        provideInput("31");
-        RightPrime.main(new String[0]);
-        String actual = getOutput();
-        String expected = "Enter a number"+System.lineSeparator()+"true"+System.lineSeparator();
-
-        assertEquals(expected, actual, "Your program does not handle small right truncatable primes");
+        assertEquals(expected, actual, "Your program does not check the prime after multiple truncations");
     }
 
     @Test

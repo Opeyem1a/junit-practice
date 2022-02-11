@@ -1,9 +1,42 @@
 package q7;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.*;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 public class CountArTest {
+    private final InputStream systemIn = System.in;
+    private final PrintStream systemOut = System.out;
+
+    private ByteArrayInputStream testIn;
+    private ByteArrayOutputStream testOut;
+
+    @BeforeEach
+    public void setUpOutput() {
+        testOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(testOut));
+    }
+
+    private void provideInput(String data) {
+        testIn = new ByteArrayInputStream(data.getBytes());
+        System.setIn(testIn);
+    }
+
+    private String getOutput() {
+        return testOut.toString();
+    }
+
+    @AfterEach
+    public void restoreSystemInputOutput() {
+        System.setIn(systemIn);
+        System.setOut(systemOut);
+    }
+    //actual tests start now
     @Test
     public void methodAll0s(){
         int[] expected = {10, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -21,14 +54,24 @@ public class CountArTest {
         }
         int[] actual = CountAr.countThisPlease(passed);
 
-        assertArrayEquals(expected, actual, "A randomly generated set of numbers between 0-9 failed your test");
+        assertArrayEquals(expected, actual, "Expected output: " + Arrays.toString(expected) + " Received output: " + Arrays.toString(actual));
     }
     @Test
     //if this is the only test passed probably hard coded, but don't know how to work with test results in code
     public void testExample(){
         int[] expected = {0, 1, 0, 2, 3, 1, 0, 2, 0, 3};
         int[] actual = CountAr.countThisPlease(new int[]{ 1, 3, 4, 5, 4, 9, 4, 9, 9, 7, 7, 3 });
-        assertArrayEquals(expected, actual, "The example code did not come back right");
+        assertArrayEquals(expected, actual, "The example code did not come back right. Expected output: " + Arrays.toString(expected) + " Received" + Arrays.toString(actual));
+    }
+    @Test
+    public void testMain(){
+        CountAr.main(new String[0]);
+        String output = getOutput().replaceAll(System.lineSeparator(), "");
+        output = output.replaceAll(" ", "");
+        String expected = "0102310203";
+
+        assertEquals(output, expected, "Your main method did not print the expected values " + expected + " (spacing should not matter)");
+
     }
     @Test
     public void methodOutOfBoundsException(){
