@@ -15,6 +15,8 @@ public class Javademic
         double quantity = Math.pow( 1+r, t );
         double xt = quantity * x0;
         System.out.println( "Num cases of infections in " + t + " days is " + xt + " people" );
+
+
     }
 }
 

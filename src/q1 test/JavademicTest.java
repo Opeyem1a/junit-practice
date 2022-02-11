@@ -39,18 +39,24 @@ class JavademicTest {
 
     @Test
     public void OutputCheck(){
-        int expectedCases = 13100;
+        // Create expected string
+        double expectedCases = Math.pow( 1+0.3, 30 ) * 5;
+        String expected = "Num cases of infections in 30 days is " + expectedCases + " people" ;
         //Call the main method here
         Javademic.main(new String[0]);
         //Get the output
         String actualOutput = getOutput();
-        actualOutput = actualOutput.replaceAll("[^0-9.]", "");
-        String timeOutput = actualOutput.substring(0,2);
-        String timeExpected = "30";
-        actualOutput = actualOutput.substring(2);
-        int actualCases = (int) Math.round(Double.parseDouble(actualOutput));
+        String outputDays = actualOutput.split("in")[2].trim();
+        outputDays = outputDays.split("days")[0].trim();
+        String outputCases = actualOutput.split("is")[1].trim();
+        outputCases = outputCases.split("people")[0].trim();
         //Compare
-        assertEquals(expectedCases, actualCases, "The number of cases is different");
-        assertEquals(timeExpected, timeOutput, "The number of days is different then expected");
+        try {
+            assertEquals(expectedCases, Double.parseDouble(outputCases), "The number of cases is different then expected");
+        }catch(Exception e){
+            fail("Could not find the number of cases in your output string");
+        }
+        assertEquals("30", outputDays, "The number of days is different then expected");
+        assertTrue(actualOutput.contains(expected), "Output format does not match example");
     }
 }
