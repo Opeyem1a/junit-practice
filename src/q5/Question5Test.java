@@ -55,7 +55,7 @@ public class Question5Test {
     @Test
     public void OutputCheckNotArmStrongNums() {
 
-        int[] notArmStrongNums = {10, 123, 152, 234, 372, 408, 500, 534, 690, 1425, 2323, 2452, 54753};
+        int[] notArmStrongNums = {-123, -10, -2, -1, 10, 123, 152, 234, 372, 408, 500, 534, 690, 1425, 2323, 2452, 54753};
         for(int i = 0; i < notArmStrongNums.length; i++ ){
             String expectedOut = notArmStrongNums[i] + " is NOT an Armstrong Number!" + System.lineSeparator();
             provideInput(notArmStrongNums[i] + System.lineSeparator());
